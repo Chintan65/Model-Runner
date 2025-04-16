@@ -8,11 +8,15 @@
         "parameter_filename": "sum_floats_parameters.json"
     },
     "image_processor.py": {
-        "name": "Test - 1",
+        "name": "image_processor.py",
         "parameter_filename": "ip.json"
     },
     "1.py": {
         "name": "ij",
         "parameter_filename": "1.json"
+    },
+    "image_processor copy.py": {
+        "name": "image_processor copy.py",
+        "parameter_filename": "ip.json"
     }
 }
