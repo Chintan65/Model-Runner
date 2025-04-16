@@ -1,0 +1,18 @@
+{
+    "tp.py": {
+        "name": "Test - 1",
+        "parameter_filename": "tp.json"
+    },
+    "sum_floats.py": {
+        "name": "Test - 1",
+        "parameter_filename": "sum_floats_parameters.json"
+    },
+    "image_processor.py": {
+        "name": "Test - 1",
+        "parameter_filename": "ip.json"
+    },
+    "1.py": {
+        "name": "ij",
+        "parameter_filename": "1.json"
+    }
+}
