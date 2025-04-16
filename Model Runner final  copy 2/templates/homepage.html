@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Model Runner</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Select or Upload Model</h1>
+
+        <h2>Available Models</h2>
+        {% if available_models %}
+            <form method="get" action="{{ url_for('run_model') }}">
+                <label for="model_filename">Choose a Model:</label>
+                <select name="model_filename" id="model_filename">
+                    <option value="" disabled selected>-- Select a Model --</option>
+                    {% for model in available_models %}
+                        <option value="{{ model }}">{{ model_data.get(model, {}).get('name', model) }} ({{ model }})</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Run Selected Model</button>
+            </form>
+        {% else %}
+            <p>No models have been uploaded yet.</p>
+        {% endif %}
+
+        <hr>
+
+        <h2>Upload New Model</h2>
+        <form method="get" action="{{ url_for('model_upload') }}">
+            <button type="submit">Upload New Model</button>
+        </form>
+    </div>
+</body>
+</html>

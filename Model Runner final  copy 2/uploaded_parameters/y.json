@@ -1,0 +1,14 @@
+{
+  "input_parameters": [
+    {
+      "name": "image_input",
+      "type": "image",
+      "description": "Upload an image file"
+    },
+    {
+      "name": "new_name",
+      "type": "text",
+      "description": "Enter the new name for the image without extension"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+    "input_parameters": [
+      {
+        "name": "input_image",
+        "type": "image",
+        "description": "Upload an image file"
+      }
+    ]
+  }

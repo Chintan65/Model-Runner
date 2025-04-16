@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Model Output</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Model Output</h1>
+        {% if output_json %}
+            <h2>Output (JSON):</h2>
+            <pre>{{ output_json|tojson(indent=4) }}</pre>
+        {% elif output_image_filename %}
+            <h2>Output (Image):</h2>
+            <img src="{{ url_for('uploaded_file', filename=output_image_filename) }}" alt="Model Output Image">
+        {% elif output_number %}
+            <h2>Output (Number):</h2>
+            <p>{{ output_number }}</p>
+        {% elif output_text %}
+            <h2>Output:</h2>
+            <pre>{{ output_text|safe }}</pre>
+        {% elif error %}
+            <h2 class="error">Error:</h2>
+            <pre>{{ error|safe }}</pre>
+        {% else %}
+            <p>No output received from the model.</p>
+        {% endif %}
+        <br>
+        <a href="{{ url_for('run_model', model_filename=request.args.get('model_filename'), parameter_filename=request.args.get('parameter_filename')) }}">Run Again</a> | <a href="{{ url_for('homepage') }}">Back to Homepage</a>
+    </div>
+</body>
+</html>

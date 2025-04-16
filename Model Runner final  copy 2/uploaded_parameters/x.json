@@ -1,0 +1,20 @@
+{
+    "input_parameters": [
+      {
+        "name": "number1",
+        "type": "float",
+        "description": "The first number to sum"
+      },
+      {
+        "name": "number2",
+        "type": "float",
+        "description": "The second number to sum"
+      },
+      {
+        "name": "number3",
+        "type": "float",
+        "description": "The third number to sum"
+      }
+    ]
+  }
+  

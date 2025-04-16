@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parameter Preview</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Parameter File Preview</h1>
+        <p>Model: <strong>{{ model_filename }}</strong></p>
+        <p>Uploaded parameter file: <strong>{{ parameter_filename }}</strong></p>
+
+        {% if parameter_data %}
+            {% if parameter_data.error %}
+                <p class="error">{{ parameter_data.error }}</p>
+            {% else %}
+                <h2>Contents:</h2>
+                {% if parameter_data.input_parameters %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Default Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for param in parameter_data.input_parameters %}
+                                <tr>
+                                    <td>{{ param.get('name', '') }}</td>
+                                    <td>{{ param.get('type', '') }}</td>
+                                    <td>{{ param.get('description', '') }}</td>
+                                    <td>{{ param.get('default', 'N/A') }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <br>
+                    <form method="get" action="{{ url_for('run_model', model_filename=model_filename, parameter_filename=parameter_filename) }}">
+                        <button type="submit">Run Model with These Parameters</button>
+                    </form>
+                {% else %}
+                    <p>No 'input_parameters' found in the JSON file.</p>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+
+        <br>
+        <a href="{{ url_for('homepage') }}">Back to Homepage</a>
+    </div>
+</body>
+</html>

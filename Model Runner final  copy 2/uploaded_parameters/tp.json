@@ -1,0 +1,9 @@
+{
+    "input_parameters": [
+      {
+        "name": "input_text",
+        "type": "text",
+        "description": "Enter the text you want to process"
+      }
+    ]
+  }

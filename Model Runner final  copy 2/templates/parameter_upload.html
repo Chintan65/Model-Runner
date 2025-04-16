@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Parameters</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Parameter File</h1>
+        <p>You have selected the model: <strong>{{ model_filename }}</strong></p>
+        <p>Please upload the JSON parameter file for this model.</p>
+        <form method="POST" enctype="multipart/form-data">
+            <label for="parameter_file">Select JSON Parameter File:</label>
+            <input type="file" name="parameter_file" id="parameter_file" required><br><br>
+            <input type="submit" value="Upload and Preview Parameters">
+        </form>
+        <br>
+        <a href="{{ url_for('homepage') }}">Back to Homepage</a>
+    </div>
+</body>
+</html>
